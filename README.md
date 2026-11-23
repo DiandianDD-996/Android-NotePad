@@ -1,12 +1,17 @@
 # 期中 · NotePad 记事本
 
-已在 Android 13（API 33）模拟器构建、安装并运行设备验收测试。连接测试设备后可用 `.\gradlew.bat connectedDebugAndroidTest` 重跑；测试会在应用中操作，请使用测试设备。
-
-实际运行截图：[分类和时间戳](docs/notes.png)。
-
 基于[课程指定的 NotePad](https://github.com/fjnu-cse/NotePad/tree/9279eab943f50012dd299df3417259e3478c8364)。保留上游的 `NotePad.java` 数据契约和 `NotePadProvider.java` SQLite 数据提供器，保留原文件版权声明。将旧工程迁移至 Gradle 8.9，重写列表与编辑交互，使用不对其他应用开放的 provider。上游样例不是本次原创部分。
 
+## 运行效果
+
+| 笔记列表 | 正文搜索 |
+| --- | --- |
+| <img src="docs/notes.png" width="260" alt="列表中每条笔记显示分类和最后修改时间。"> | <img src="docs/search.png" width="260" alt="搜索正文中的 LazyColumn，命中标题不含该词的 Compose Lab。"> |
+| 列表中每条笔记显示分类和最后修改时间。 | 搜索正文中的 LazyColumn，命中标题不含该词的 Compose Lab。 |
+
 ## 运行
+
+已在 Android 13（API 33）模拟器构建、安装并运行设备验收测试。连接测试设备后可用 `.\gradlew.bat connectedDebugAndroidTest` 重跑；测试会在应用中操作，请使用测试设备。
 
 在 Android Studio 中打开本仓库根目录，使用 JDK 17、Android SDK Platform 35 和 Build Tools 34.0.0。选择 API 26 或更高版本的设备，等待 Gradle 同步后运行 app。Windows 命令行也可在仓库根目录执行：
 
