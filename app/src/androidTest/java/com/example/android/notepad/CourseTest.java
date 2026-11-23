@@ -35,7 +35,9 @@ public class CourseTest {
   }
 
   void input(int i, String s) {
-    d.findObjects(By.clazz("android.widget.EditText")).get(i).setText(s);
+    java.util.List<UiObject2> fields=d.wait(Until.findObjects(By.clazz("android.widget.EditText")), 5000);
+    assertNotNull("编辑框没有出现", fields);
+    fields.get(i).setText(s);
     d.waitForIdle();
   }
 
@@ -51,6 +53,7 @@ public class CourseTest {
     String suffix = Long.toString(System.currentTimeMillis());
     String title = "复习" + suffix;
     click("新建笔记");
+    has("保存");
     input(0, title);
     input(1, "LazyColumn" + suffix);
     java.util.List<UiObject2> spinners = d.findObjects(By.clazz("android.widget.Spinner"));
@@ -58,8 +61,10 @@ public class CourseTest {
     click("学习");
     click("保存");
     hasPart(title);
+    d.takeScreenshot(new java.io.File(ctx.getFilesDir(), "notes.png"));
     String second = "备忘" + suffix;
     click("新建笔记");
+    has("保存");
     input(0, second);
     input(1, "第二条正文");
     click("保存");

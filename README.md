@@ -1,5 +1,9 @@
 # 期中 · NotePad 记事本
 
+已在 Android 13（API 33）模拟器构建、安装并运行设备验收测试。连接测试设备后可用 `.\gradlew.bat connectedDebugAndroidTest` 重跑；测试会在应用中操作，请使用测试设备。
+
+实际运行截图：[分类和时间戳](docs/notes.png)。
+
 基于[课程指定的 NotePad](https://github.com/fjnu-cse/NotePad/tree/9279eab943f50012dd299df3417259e3478c8364)。保留上游的 `NotePad.java` 数据契约和 `NotePadProvider.java` SQLite 数据提供器，保留原文件版权声明。将旧工程迁移至 Gradle 8.9，重写列表与编辑交互，使用不对其他应用开放的 provider。上游样例不是本次原创部分。
 
 ## 运行
